@@ -1,0 +1,22 @@
+import java.util.Random;
+Random r = new Random();
+PVector[] snow;
+void setup() {
+  size(640, 400);
+  background(51);
+}
+
+int[] randoms = new int[3];
+
+void draw() {
+  fill(255, 255, 255); //white
+  rect(0, 360, width, height / 10); //white for the snow at the bottom of window
+  randoms[0] =  r.nextInt(4); //random for size of snowflake
+  randoms[1] = r.nextInt(height); //random for location of snow on y
+  randoms[2] = r.nextInt(width); //random for location of snow on x
+  noStroke(); 
+  ellipse(randoms[2], randoms[1], randoms[0], randoms[0]); //make a snowflake
+  fill(0, 0, 0); //make it black
+  rect(0, 180, width, height / 9); //window crosspart
+  rect(290, 0, width / 10, height); //window crosspart
+}
